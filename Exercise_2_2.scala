@@ -2,3 +2,25 @@
 //    to a given comparision function
 // def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean
 //
+
+object myModule {
+
+  def isSorted[A] (as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+
+    // design strategy - Array A is sort if for each element from 0 to
+    //                   arrary.length element n is greater than n-1.
+    //                   An empty arrary is sorted
+    //                   An array of length 1 is sorter
+
+    if (as == null) true
+    else if (as.length == 1) true
+    else false
+
+  }
+
+  def main(args: Array[String]): Unit = {
+    isSorted( Array(1,2,3), true)
+
+  }
+
+}
