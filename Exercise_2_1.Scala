@@ -1,4 +1,7 @@
-
+/* Comments, test cases, and other code changes are
+The MIT License (MIT)
+Copyright (c) 2016 wsf.fletcher
+*/
 object FibNumber{
 
 def fib(n: Int): Double ={

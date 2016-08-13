@@ -1,3 +1,10 @@
+/* Comments, test cases, and other code changes are
+The MIT License (MIT)
+Copyright (c) 2016 wsf.fletcher
+Original code sections - Copyright (c) 2012, Manning Publications, Co.
+*/
+
+
 object myModule {
 
 // findFirst - return the first index of an array where

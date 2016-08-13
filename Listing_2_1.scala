@@ -1,6 +1,9 @@
-// A comment
-/* Another comment */
-/** A documentation comment */
+/* Comments, test cases, and other code changes are
+The MIT License (MIT)
+Copyright (c) 2016 wsf.fletcher
+Original code sections - Copyright (c) 2012, Manning Publications, Co.
+*/
+
 object MyModule {
   def abs (n: Int): Int =
     if ( n < 0) -n

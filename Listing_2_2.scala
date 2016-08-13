@@ -1,3 +1,9 @@
+/* Comments, test cases, and other code changes are
+The MIT License (MIT)
+Copyright (c) 2016 wsf.fletcher
+Original code sections - Copyright (c) 2012, Manning Publications, Co.
+*/
+
 // Listing 2.2 shows how a Higher-Order-Function can be used to
 //    combine seperate modules into a single function.
 

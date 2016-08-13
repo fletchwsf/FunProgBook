@@ -1,3 +1,9 @@
+/* Comments, test cases, and other code changes are
+The MIT License (MIT)
+Copyright (c) 2016 wsf.fletcher
+Original code sections - Copyright (c) 2012, Manning Publications, Co.
+*/
+
 // Implement isSorted, which checks whether an Array[A] is sorted according
 //    to a given comparision function
 // def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean
