@@ -4,6 +4,13 @@ Copyright (c) 2016 wsf.fletcher
 Original code sections - Copyright (c) 2012, Manning Publications, Co.
 */
 
+
+// This listing demonstrates the useage of polymorphic functions. The first
+//    version of findFirst only takes an arrary of strings while in the
+//    second version findFirst will accept any data type [A] and a HOF
+//    of type [A] that defines the search parameter and a logial test
+//    for that search parameter.
+
 object myModule {
 
 // findFirst - return the first index of an array where
@@ -17,7 +24,8 @@ def findFirst(ss: Array[String], key: String): Int  = {
 loop(0)
 }
 
-
+// findFirst - a polymorphic version of findFirst that works with any data
+//             data type. Returns the index number if successful or -1 if not
 def findFirst[A](as: Array[A], p:A => Boolean) : Int = {
   @annotation.tailrec
   def loop(n: Int): Int =
@@ -28,12 +36,13 @@ def findFirst[A](as: Array[A], p:A => Boolean) : Int = {
 }
 
 
-  def main(args: Array[String]): Unit = {
-    println(findFirst(Array("one", "two", "three", "four"), "three": String))
+def main(args: Array[String]): Unit = {
+  // example call using the mono-morphic findFirst
+  println(findFirst(Array("one", "two", "three", "four"), "three": String))
 
-    println(findFirst(Array("one", "two", "three", "four"), (x:String) => x == "three" ))
-
-    println(findFirst(Array(0,10,20,30,40), (x:Int) => x == 40 ))
+  // Examples for the polymorphic call, not the convention for the HOF call
+  println(findFirst(Array("one", "two", "three", "four"), (x:String) => x == "three" ))
+  println(findFirst(Array(0,10,20,30,40), (x:Int) => x == 40 ))
 
  }
 
