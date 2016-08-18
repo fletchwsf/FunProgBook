@@ -40,7 +40,7 @@ def main(args: Array[String]): Unit = {
   // example call using the mono-morphic findFirst
   println(findFirst(Array("one", "two", "three", "four"), "three": String))
 
-  // Examples for the polymorphic call, not the convention for the HOF call
+  // Examples for the polymorphic call, note the convention for the HOF call
   println(findFirst(Array("one", "two", "three", "four"), (x:String) => x == "three" ))
   println(findFirst(Array(0,10,20,30,40), (x:Int) => x == 40 ))
 
