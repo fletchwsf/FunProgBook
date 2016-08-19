@@ -2,6 +2,25 @@
 Thumbs.db
 ehthumbs.db
 
+
+# =====================
+# Scala output files
+#======================
+*.xml
+*.css
+*.history
+*out
+*export
+*_dsp
+*.xsl
+*.properties
+*inputs
+*outputs
+*output
+*data
+*resources
+
+
 # Folder config file
 Desktop.ini
 
