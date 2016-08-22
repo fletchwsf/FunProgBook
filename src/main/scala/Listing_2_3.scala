@@ -5,7 +5,7 @@ Original code sections - Copyright (c) 2012, Manning Publications, Co.
 */
 
 
-object myModule {
+object Listing_2_3 {
 
 // findFirst - return the first index of an array where
 //             the key occurs. Return -1 if the key is not found

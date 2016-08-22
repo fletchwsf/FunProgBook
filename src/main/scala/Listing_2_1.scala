@@ -4,7 +4,7 @@ Copyright (c) 2016 wsf.fletcher
 Original code sections - Copyright (c) 2012, Manning Publications, Co.
 */
 
-object MyModule {
+object Listing_2_1 {
   def abs (n: Int): Int =
     if ( n < 0) -n
     else n

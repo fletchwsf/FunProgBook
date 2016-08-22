@@ -7,7 +7,7 @@ Original code sections - Copyright (c) 2012, Manning Publications, Co.
 // Listing 2.2 shows how a Higher-Order-Function can be used to
 //    combine seperate modules into a single function.
 
-object MyModule {
+object Listing_2_2 {
   def abs (n: Int): Int =
     if ( n < 0) -n
     else n
