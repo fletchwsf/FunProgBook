@@ -11,6 +11,7 @@ class CollatzSpec extends FlatSpec{
 }
 
 
-
+println(collatz.conjecture(7))
+println(collatz.conjecture(35))
 
 }
