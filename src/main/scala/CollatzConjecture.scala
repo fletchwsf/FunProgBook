@@ -17,7 +17,7 @@ object collatz  {
 def conjecture(n: Int): ArrayBuffer[Int] = {
   val buffer = new ArrayBuffer[Int] ()           // a buffer to hold the result
 
-  def loop(x: Int): Int = {
+  def loop(x: Int): Int = {                   // x will be reduced to 1
     buffer += x
     if( x <= 1)  x
     else if(isEven(x)) loop( x / 2)          // divide even numbers by 2
@@ -44,11 +44,25 @@ def many(n: Int): ArrayBuffer[Int] = {
 }
 
 
+// def calcRange(start: Int, end: Int): ArrayBuffer[Int]= {
+//     var buffer = new ArrayBuffer[Int]()
+//      @annotation.tailrec
+//      def loop(n: Int): ArrayBuffer[Int] = {
+//       if ( n <= end ) {
+//       conjecture(n)
+//       loop(n + 1)
+//      }
+//   }
+//   loop(start)
+//   buffer
+// }
+
 
 
 def main(args: Array[String]): Unit = {
   println(conjecture(48))
   conjecture(48)
+  many(100)
 }
 
 }
