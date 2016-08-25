@@ -23,10 +23,10 @@ test("Test-03: Check findFirst returns correct element in the nth position"){
   assert(Listing_2_4.findFirst(Array(0,10,20,30,40), (x:Int) => x == 40 ) === 4)
 }
 
-test("Test-04: findfirst doesn't find 0 in (1)") {
+test("Test-04: findfirst doesn't find 0 in (1,2,3,4)") {
   val inArrayOne = Array (1,2,3,4)
-  val lookFor = 40
-  assert(Listing_2_4.findFirst(inArrayOne, (x:Int) => x == lookFor ) === 4,
+  val lookFor = 0
+  assert(Listing_2_4.findFirst(inArrayOne, (x:Int) => x == lookFor ) === -1,
           "Array " + inArrayOne.mkString + " has no entry equal to " + lookFor )
 
 }
