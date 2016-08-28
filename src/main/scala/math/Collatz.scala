@@ -1,3 +1,5 @@
+package math
+
 // A program to check the Collatiz Conjecute for a postive integer
 //
 // The Collatiz conjecture states that for any positive integer n the
@@ -12,7 +14,7 @@ import scala.collection.mutable.ArrayBuffer
 //   and returns the reduction sequence
 //-----------------------------------------------------------------------------
 
-object collatz  {
+object Collatz  {
 
 def conjecture(n: Int): ArrayBuffer[Int] = {
   val buffer = new ArrayBuffer[Int] ()           // a buffer to hold the result
