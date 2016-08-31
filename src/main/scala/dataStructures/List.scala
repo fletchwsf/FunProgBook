@@ -17,7 +17,7 @@ package dataStructures
     List.sum(newList)                       // calculates the sum of  linked list of type integers
 
     In the REPL newList evaluates to the following:
-    > Cons(1, Cons(2, Cons(3, Cons(4))))
+    > Cons(1, Cons(2, Cons(3, Cons(4))))                // methods apply, head, and tail, use Cons in the pattern match
 ----------------------------------------------------------------------------------------------------------------------*/
 // define the constructors and abstract interfaces
 sealed trait List[+A]                                         // sealed traits require all method functions
@@ -38,7 +38,7 @@ object List {
   }
 
   def product(ds: List[Double]): Double = ds match {
-    case Nil => 1.0                                             //  one is the identity function for multiplication
+    case Nil =>  1.0                                          //  one is the identity function for multiplication
     case Cons(0.0, _) => 0.0
     case Cons(x,xs) => x * product(xs)
   }
@@ -48,14 +48,24 @@ object List {
     else Cons(as.head, apply(as.tail: _*))
 
   def tail[A](t: List[A]): List[A] = t match {
-    case Nil => Nil
-    case Cons( _ , listTail) => listTail
+    case Nil => sys.error("tail of an empty list")
+    case Cons( _ , tail) => tail              // pattern match on Cons, head is the wild card abd is discarded
+                                              //    while the second patter matches the remaining portion of the list
   }
 
   def head[A](h: List[A]): A = h match {
-    case Nil => Nil
-    case Cons(listHead, _ ) => listHead
+    case Nil => sys.error("head of empty list")
+    case Cons(head, _ ) => head     //  pattern match on Cons, the head of the list is remapped and the tail discarded
   }
 
+  def setHead[A](newHead: A, existingList: List[A]): List[A] = {    // replace the first item of the list with new item
+    // if(existingList.isEmpty) Nil
+    Cons(newHead, List.tail(existingList))
+  }
+
+  def drop[A](aList: List[A], n: Int): List[A] = {
+    if (n <= 0) aList
+    else aList
+  }
 
 }
