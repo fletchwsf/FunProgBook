@@ -33,39 +33,43 @@ case class Cons[+A](head: A, tail: List[A]) extends List[A]   // create a linked
 object List {
 
   def sum(ints: List[Int]): Int = ints match {
-    case Nil => 0                                               // zero is the identify function for addition
-    case Cons(x,xs) => x + sum(xs)
+    case Nil => 0                                              // zero is the identify function for addition
+    case Cons(x,xs) => x + sum(xs)                             // match a linked list and recursive call to sum
   }
 
-  def product(ds: List[Double]): Double = ds match {
+  def product(ds: List[Int]): Double = ds match {
     case Nil =>  1.0                                          //  one is the identity function for multiplication
-    case Cons(0.0, _) => 0.0
-    case Cons(x,xs) => x * product(xs)
+    case Cons(0.0, _) => 0.0                                  //  if an entry is zero the product is zero
+    case Cons(x,xs) => x * product(xs)                        //  match a linked list and recursive call product
   }
 
-  def apply[A](as: A*): List[A] =                               // Variadic function syntax accept zero or more of
-    if (as.isEmpty) Nil                                         //    arguments of type A
+  def apply[A](as: A*): List[A] =                              // Variadic function syntax accept zero or more of
+    if (as.isEmpty) Nil                                        //    arguments of type A
     else Cons(as.head, apply(as.tail: _*))
 
   def tail[A](t: List[A]): List[A] = t match {
     case Nil => sys.error("tail of an empty list")
-    case Cons( _ , tail) => tail              // pattern match on Cons, head is the wild card abd is discarded
-                                              //    while the second patter matches the remaining portion of the list
+    case Cons( _ , tail) => tail                                // match a linked list, head is the wild card and
+                                                                //  the tail of the list is returned
   }
 
   def head[A](h: List[A]): A = h match {
     case Nil => sys.error("head of empty list")
-    case Cons(head, _ ) => head     //  pattern match on Cons, the head of the list is remapped and the tail discarded
+    case Cons(head, _ ) => head                                 //  pattern a linked list, tail is the wild card
+                                                                //    and the head of the list is returned
   }
 
-  def setHead[A](newHead: A, existingList: List[A]): List[A] = {    // replace the first item of the list with new item
-    // if(existingList.isEmpty) Nil
-    Cons(newHead, List.tail(existingList))
+  // replace the first item of the list with a new item
+  def setHead[A](newHead: A, existingList: List[A]): List[A] = newHead match {
+    case Nil => sys.error("cannot insert an empty head")
+    case _ => Cons(newHead, List.tail(existingList))           // match any item and construct a list with a new head
+                                                               // and the tail of the original list
   }
 
-  def drop[A](aList: List[A], n: Int): List[A] = {
-    if (n <= 0) aList
-    else aList
+  // drop the first n items of the list
+  def drop[A](aList: List[A], n: Int): List[A] = n match {
+    case 0 => aList                                                  // n items removed return the list
+    case _ => drop(List.tail(aList), n-1)                            // recursive call with the tail of the list
   }
 
 }
