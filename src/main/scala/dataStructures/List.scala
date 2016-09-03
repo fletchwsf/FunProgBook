@@ -70,6 +70,7 @@ object List {
   def drop[A](aList: List[A], n: Int): List[A] = n match {
     case 0 => aList                                                  // n items removed return the list
     case _ => drop(List.tail(aList), n-1)                            // recursive call with the tail of the list
+
   }
 
   // dropWhile - removes from the list elements that match a predicate
@@ -78,5 +79,23 @@ object List {
                                                                   //   true, recursive call with the list tail
     case _ => l                                                   // Wildcard match, just pass the list unchanged
   }
+
+  //-----------------------------------------------------------------
+  // Add all the items one list to the end of the first list
+  def append[A](a1: List[A], a2: List[A]): List[A] =
+    a1 match {
+      case Nil => a2
+      case Cons(h,t) => Cons(h, append(t, a2))
+    }
+
+  //------------------------------------------------------------------------
+  // init - returns a list of all items in the list except for the last item
+  def init[A](l: List[A]): List[A] =
+    l match {
+      case Cons(h,t) if (t == Nil) => Nil
+      case Cons(h,t) => Cons(h, init(t))
+    }
+
+
 
 }

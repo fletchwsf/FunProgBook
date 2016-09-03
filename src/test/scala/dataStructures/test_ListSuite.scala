@@ -62,6 +62,12 @@ class test_ListSuite extends FunSuite {
     }
   }
 
+
+  test("init"){
+    new TestLists{
+      assert(List.init(list10) === List[Int](1,2,3,4,5,6,7,8,9))
+    }
+  }
 }
 
 
