@@ -20,6 +20,8 @@ ehthumbs.db
 *data
 *resources
 *target*
+*.idea
+
 
 # Folder config file
 Desktop.ini
