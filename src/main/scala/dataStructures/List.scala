@@ -72,4 +72,11 @@ object List {
     case _ => drop(List.tail(aList), n-1)                            // recursive call with the tail of the list
   }
 
+  // dropWhile - removes from the list elements that match a predicate
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Cons(h,t) if f(h) => dropWhile(t,f)                      // Match the head of the list, test function f if
+                                                                  //   true, recursive call with the list tail
+    case _ => l                                                   // Wildcard match, just pass the list unchanged
+  }
+
 }

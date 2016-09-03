@@ -56,6 +56,12 @@ class test_ListSuite extends FunSuite {
     }
   }
 
+  test("drop while") {
+    new TestLists {
+      assert(List.dropWhile(list10, (x: Int) => x < 6) === List[Int](6, 7, 8, 9, 10))
+    }
+  }
+
 }
 
 
