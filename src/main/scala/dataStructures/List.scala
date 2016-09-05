@@ -1,5 +1,13 @@
 package dataStructures
 
+/* Comments, test cases, and other code changes are
+The MIT License (MIT)
+Copyright (c) 2016 wsf.fletcher
+Original code sections - Copyright (c) 2012, Manning Publications, Co.
+*/
+
+
+
 /**
   * Created by Will on 8/27/2016.
   */
@@ -97,5 +105,22 @@ object List {
     }
 
 
+  //---------------------------------------------------------------------------
+  // foldRight - apply the function f over all members of a list
+  def foldRight[A,B](as: List[A], z: B)(f: (A, B) => B) : B =
+    as match{
+      case Nil => z
+      case Cons(x, xs) => f(x, foldRight(xs, z)(f))
+    }
+
+
+  def sum2(ns: List[Int]) =
+   foldRight(ns, 0)((x,y) => x + y )
+
+  def product2(ns: List[Int]) =
+    foldRight(ns, 1)((x,y) => x * y )
+
+  def length[A](as: List[A]): Int =
+    foldRight(as, 0)((x,y) => y +1 )
 
 }

@@ -14,18 +14,24 @@ class test_ListSuite extends FunSuite {
     val list01 = List[Int](1, 2, 3, 4)
     val list02 = List[Int](1, 2, 3, 4)
     val list03 = List[Int](2, 3, 4)
+    val list15 = List[Int](1,2,3,4,5)
+    val list610 = List[Int](6,7,8,9,10)
     val list10 = List[Int](1,2,3,4,5,6,7,8,9,10)
+    val listOne = List[String]("one")
+    val listTwo = List("one", "two")
   }
 
   test("Sum a list of Ints ") {
     new TestLists {
       assert(List.sum(list01) === 10, "sum is incorrect for list:" + list01)
+      assert(List.sum2(list01) === 10, "sum is incorrect for list:" + list01)
     }
   }
 
   test("List test product of the list entries") {
     new TestLists {
       assert(List.product(list02) === 24, "product is incorrect for list:" + list02)
+      assert(List.product2(list02) === 24, "product is incorrect for list:" + list02)
     }
   }
 
@@ -62,12 +68,27 @@ class test_ListSuite extends FunSuite {
     }
   }
 
+  test("append"){
+    new TestLists {
+      assert(List.append(list15,list610) === list10, "lists are not equal to 1-10")
+    }
+  }
+
 
   test("init"){
     new TestLists{
       assert(List.init(list10) === List[Int](1,2,3,4,5,6,7,8,9))
     }
   }
+
+  test("length"){
+    new TestLists{
+      assert(List.length(list10) === 10, "length returned wrong length")
+      assert(List.length(listOne) === 1, "length is wrong")
+      assert(List.length(listTwo) === 2, "length is wrong")
+    }
+  }
+
 }
 
 
